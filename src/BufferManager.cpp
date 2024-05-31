@@ -20,8 +20,12 @@ guarda la página reemplazada en el disco y luego carga la nueva página en ese 
 void BufferManager::loadPageFromDisk(string blockPath, int pageID, char _mode) {
     bool mode = _mode == 'w' ? true : false;
     if (bpool.isPageLoaded(pageID)) {
-        cout << "La pagina ya esta cargada" << endl;
-        bpool.getFrame(bpool.getFrameId(pageID)).setDirtyFlag(true);
+        cout << "La pagina ya esta cargada" << "\n";
+        if (_mode == 'L') {
+            bpool.getFrame(bpool.getFrameId(pageID)).setDirtyFlag(false);
+        } else {
+            bpool.getFrame(bpool.getFrameId(pageID)).setDirtyFlag(true);
+        }
         bpool.modifyPinInExistingFrame(pageID, 'i');
         bpool.incrementHistory();
         bpool.printTableFrame();
