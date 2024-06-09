@@ -6,6 +6,8 @@
 
 using namespace std;
 
+/* Kenny Borja */
+
 class Page {
 private:
   int Size;

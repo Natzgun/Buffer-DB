@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+/*Funciones escritas por Kenny Borja*/
+
 Page::Page() : Size(0), Name(""), pageID(-1) {
 }
 
